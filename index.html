@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WEALTHIFY — Smarter Investing Starts Here</title>
+  <meta name="description"
+    content="WEALTHIFY is a premium fintech platform offering SIP calculators, Step-Up SIP calculators, and mutual fund investment simulators." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ LANDING PAGE ═══════════════════════ -->
+  <section id="landing" class="page active">
+    <div class="landing-bg-glow"></div>
+    <div class="landing-orb landing-orb-1"></div>
+    <div class="landing-orb landing-orb-2"></div>
+
+    <nav class="navbar">
+      <div class="nav-logo" onclick="showPage('landing')">
+        <span class="nav-logo-w">W</span><span class="nav-logo-rest">ealthify</span>
+      </div>
+      <div class="nav-links">
+        <a href="#" onclick="showPage('sip-calculator');return false;" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          SIP Calc
+        </a>
+        <a href="#" onclick="showPage('stepup-calculator');return false;" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+            <polyline points="17 6 23 6 23 12" />
+          </svg>
+          Step-Up SIP
+        </a>
+        <a href="#" onclick="showPage('mutual-fund');return false;" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          Mutual Funds
+        </a>
+        <button class="nav-cta" onclick="openBrokerModal()">Invest Now</button>
+      </div>
+    </nav>
+
+    <div class="hero-center">
+      <div class="landing-content">
+        <div class="landing-badge">
+          <span class="badge-dot"></span>
+          <span>Smart &nbsp;·&nbsp; Secure &nbsp;·&nbsp; Growing</span>
+        </div>
+
+        <h1 class="landing-title">
+          <span class="title-word">WEALTH</span><span class="title-word title-accent">IFY</span>
+        </h1>
+
+        <p class="landing-subtitle">
+          <span class="subtitle-line">SMARTER INVESTING</span>
+          <span class="subtitle-line subtitle-dim">STARTS HERE</span>
+        </p>
+
+        <p class="landing-desc">
+          Plan your financial future with precision.<br>
+          <span class="desc-highlight">SIP · Step-Up SIP · Mutual Fund Simulator</span><br>
+          — all powered by real market data.
+        </p>
+
+        <div class="landing-buttons">
+
+        <button class="land-btn" id="btn-sip" onclick="showPage('sip-calculator')">
+          <div class="btn-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">SIP Calculator</span>
+            <span class="btn-desc">Estimate monthly SIP returns with compounding</span>
+          </div>
+          <span class="btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+          <span class="btn-shine"></span>
+        </button>
+
+        <button class="land-btn" id="btn-stepup" onclick="showPage('stepup-calculator')">
+          <div class="btn-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+              <polyline points="17 6 23 6 23 12" />
+            </svg>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Step-Up SIP Calculator</span>
+            <span class="btn-desc">Grow your SIP annually and accelerate wealth</span>
+          </div>
+          <span class="btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+          <span class="btn-shine"></span>
+        </button>
+
+        <button class="land-btn" id="btn-mf" onclick="showPage('mutual-fund')">
+          <div class="btn-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Choose Your Mutual Fund</span>
+            <span class="btn-desc">Past investment simulator with live NAV data</span>
+          </div>
+          <span class="btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+          <span class="btn-shine"></span>
+        </button>
+
+        <button class="land-btn land-btn-primary" id="btn-invest" onclick="openBrokerModal()">
+          <div class="btn-icon-wrap btn-icon-glow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Invest Now</span>
+            <span class="btn-desc">Open your account on Zerodha, Groww or Upstox</span>
+          </div>
+          <span class="btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </span>
+          <span class="btn-shine"></span>
+        </button>
+
+      </div><!-- /landing-buttons -->
+
+      <div class="landing-stats">
+        <div class="stat-item">
+          <span class="stat-value">₹2.4L Cr+</span>
+          <span class="stat-label">AUM Tracked</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">1,000+</span>
+          <span class="stat-label">Mutual Funds</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Real Data</span>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SIP CALCULATOR ═══════════════════════ -->
+  <section id="sip-calculator" class="page">
+    <div class="page-bg-glow"></div>
+    <div class="page-header">
+      <button class="back-btn" onclick="showPage('landing')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Back
+      </button>
+      <div class="page-title-group">
+        <h1 class="page-title">SIP <span class="page-title-accent">Calculator</span></h1>
+        <p class="page-subtitle">Systematic Investment Plan — monthly compounding returns</p>
+      </div>
+      <div class="page-header-tag">
+        <span class="tag-dot"></span> Live Calc
+      </div>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-card inputs-card">
+        <div class="card-title-row">
+          <h2 class="card-title">Investment Details</h2>
+          <span class="card-badge">Monthly SIP</span>
+        </div>
+
+        <div class="input-group">
+          <div class="input-header">
+            <label class="input-label">Monthly Investment</label>
+            <div class="input-value-display">
+              <span class="currency-symbol">₹</span>
+              <input type="number" id="sip-amount" class="inline-input" value="10000" min="500" max="1000000" />
+            </div>
+          </div>
+          <input type="range" id="sip-amount-slider" class="slider" min="500" max="100000" step="500" value="10000" />
+          <div class="slider-labels"><span>₹500</span><span>₹1,00,000</span></div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-header">
+            <label class="input-label">Expected Return Rate <em>(p.a.)</em></label>
+            <div class="input-value-display">
+              <input type="number" id="sip-rate" class="inline-input" value="12" min="1" max="30" step="0.5" />
+              <span class="currency-symbol">%</span>
+            </div>
+          </div>
+          <input type="range" id="sip-rate-slider" class="slider" min="1" max="30" step="0.5" value="12" />
+          <div class="slider-labels"><span>1%</span><span>30%</span></div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-header">
+            <label class="input-label">Time Period</label>
+            <div class="input-value-display">
+              <input type="number" id="sip-years" class="inline-input" value="10" min="1" max="40" />
+              <span class="currency-symbol">Yr</span>
+            </div>
+          </div>
+          <input type="range" id="sip-years-slider" class="slider" min="1" max="40" step="1" value="10" />
+          <div class="slider-labels"><span>1 Yr</span><span>40 Yrs</span></div>
+        </div>
+
+        <button class="invest-now-btn" onclick="openBrokerModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+          Start Investing
+          <span class="btn-shine"></span>
+        </button>
+      </div>
+
+      <div class="calc-card results-card">
+        <div class="card-title-row">
+          <h2 class="card-title">Projected Growth</h2>
+          <span class="card-badge card-badge-green">Returns</span>
+        </div>
+
+        <div class="donut-container">
+          <canvas id="sip-chart" width="240" height="240"></canvas>
+          <div class="donut-center">
+            <span class="donut-label">Total Value</span>
+            <span class="donut-value" id="sip-total-display">₹0</span>
+          </div>
+        </div>
+
+        <div class="result-legend">
+          <div class="legend-item">
+            <span class="legend-dot invested"></span>
+            <span class="legend-label">Invested Amount</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot returns"></span>
+            <span class="legend-label">Est. Returns</span>
+          </div>
+        </div>
+
+        <div class="result-values">
+          <div class="result-row">
+            <span class="result-label">
+              <span class="result-dot invested-dot"></span>
+              Invested Amount
+            </span>
+            <span class="result-amount invested-color" id="sip-invested">₹0</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">
+              <span class="result-dot returns-dot"></span>
+              Estimated Returns
+            </span>
+            <span class="result-amount returns-color" id="sip-returns">₹0</span>
+          </div>
+          <div class="result-row total-row">
+            <span class="result-label total-label">Total Value</span>
+            <span class="result-amount total-color" id="sip-total">₹0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ STEP-UP SIP ═══════════════════════ -->
+  <section id="stepup-calculator" class="page">
+    <div class="page-bg-glow"></div>
+    <div class="page-header">
+      <button class="back-btn" onclick="showPage('landing')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Back
+      </button>
+      <div class="page-title-group">
+        <h1 class="page-title">Step-Up <span class="page-title-accent">SIP</span></h1>
+        <p class="page-subtitle">Increase your SIP annually — watch wealth compound faster</p>
+      </div>
+      <div class="page-header-tag page-header-tag-teal">
+        <span class="tag-dot tag-dot-teal"></span> Annual Step-Up
+      </div>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-card inputs-card">
+        <div class="card-title-row">
+          <h2 class="card-title">Investment Details</h2>
+          <span class="card-badge card-badge-teal">+% p.a.</span>
+        </div>
+
+        <div class="input-group">
+          <div class="input-header">
+            <label class="input-label">Initial Monthly Investment</label>
+            <div class="input-value-display">
+              <span class="currency-symbol">₹</span>
+              <input type="number" id="su-amount" class="inline-input" value="10000" min="500" max="1000000" />
+            </div>
+          </div>
+          <input type="range" id="su-amount-slider" class="slider" min="500" max="100000" step="500" value="10000" />
+          <div class="slider-labels"><span>₹500</span><span>₹1,00,000</span></div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-header">
+            <label class="input-label">Annual Step-Up Rate</label>
+            <div class="input-value-display stepup-highlight">
+              <input type="number" id="su-stepup" class="inline-input" value="10" min="0" max="50" step="1" />
+              <span class="currency-symbol">%</span>
+            </div>
+          </div>
+          <input type="range" id="su-stepup-slider" class="slider slider-teal" min="0" max="50" step="1" value="10" />
+          <div class="slider-labels"><span>0%</span><span>50%</span></div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-header">
+            <label class="input-label">Expected Return Rate <em>(p.a.)</em></label>
+            <div class="input-value-display">
+              <input type="number" id="su-rate" class="inline-input" value="12" min="1" max="30" step="0.5" />
+              <span class="currency-symbol">%</span>
+            </div>
+          </div>
+          <input type="range" id="su-rate-slider" class="slider" min="1" max="30" step="0.5" value="12" />
+          <div class="slider-labels"><span>1%</span><span>30%</span></div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-header">
+            <label class="input-label">Time Period</label>
+            <div class="input-value-display">
+              <input type="number" id="su-years" class="inline-input" value="10" min="1" max="40" />
+              <span class="currency-symbol">Yr</span>
+            </div>
+          </div>
+          <input type="range" id="su-years-slider" class="slider" min="1" max="40" step="1" value="10" />
+          <div class="slider-labels"><span>1 Yr</span><span>40 Yrs</span></div>
+        </div>
+
+        <button class="invest-now-btn" onclick="openBrokerModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+          Start Investing
+          <span class="btn-shine"></span>
+        </button>
+      </div>
+
+      <div class="calc-card results-card">
+        <div class="card-title-row">
+          <h2 class="card-title">Projected Growth</h2>
+          <span class="card-badge card-badge-green">Compounded</span>
+        </div>
+
+        <div class="donut-container">
+          <canvas id="su-chart" width="240" height="240"></canvas>
+          <div class="donut-center">
+            <span class="donut-label">Total Value</span>
+            <span class="donut-value" id="su-total-display">₹0</span>
+          </div>
+        </div>
+
+        <div class="result-legend">
+          <div class="legend-item">
+            <span class="legend-dot invested"></span>
+            <span class="legend-label">Invested Amount</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot returns"></span>
+            <span class="legend-label">Est. Returns</span>
+          </div>
+        </div>
+
+        <div class="result-values">
+          <div class="result-row">
+            <span class="result-label"><span class="result-dot invested-dot"></span>Invested Amount</span>
+            <span class="result-amount invested-color" id="su-invested">₹0</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label"><span class="result-dot returns-dot"></span>Estimated Returns</span>
+            <span class="result-amount returns-color" id="su-returns">₹0</span>
+          </div>
+          <div class="result-row total-row">
+            <span class="result-label total-label">Total Value</span>
+            <span class="result-amount total-color" id="su-total">₹0</span>
+          </div>
+        </div>
+
+        <div class="stepup-info-box">
+          <div class="stepup-info-row">
+            <span>Final Monthly SIP</span>
+            <span id="su-final-sip" class="info-value">₹0</span>
+          </div>
+          <div class="stepup-info-row">
+            <span>Total Months</span>
+            <span id="su-months" class="info-value">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ MUTUAL FUND SIMULATOR ═══════════════════════ -->
+  <section id="mutual-fund" class="page">
+    <div class="page-bg-glow"></div>
+    <div class="page-header">
+      <button class="back-btn" onclick="showPage('landing')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Back
+      </button>
+      <div class="page-title-group">
+        <h1 class="page-title">Mutual <span class="page-title-accent">Fund</span> Simulator</h1>
+        <p class="page-subtitle">See how a past lumpsum investment would have performed</p>
+      </div>
+      <div class="page-header-tag page-header-tag-pink">
+        <span class="tag-dot tag-dot-pink"></span> Live NAV
+      </div>
+    </div>
+
+    <div class="mf-layout">
+      <div class="calc-card mf-search-card">
+        <div class="card-title-row">
+          <h2 class="card-title">Fund Selection</h2>
+          <span class="card-badge card-badge-pink">MFAPI</span>
+        </div>
+
+        <div class="search-wrapper">
+          <svg class="search-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" id="mf-search" class="search-input" placeholder="Search by fund name..."
+            autocomplete="off" />
+          <span class="search-loader" id="search-loader" style="display:none">
+            <span class="spinner"></span>
+          </span>
+        </div>
+        <div class="search-dropdown" id="search-dropdown"></div>
+
+        <div class="selected-fund-badge" id="selected-fund-badge" style="display:none">
+          <div class="fund-badge-icon-wrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+          </div>
+          <div class="fund-badge-info">
+            <span class="fund-badge-name" id="fund-badge-name"></span>
+            <span class="fund-badge-code" id="fund-badge-code"></span>
+          </div>
+          <button class="fund-badge-clear" onclick="clearFundSelection()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="mf-inputs">
+          <div class="input-group">
+            <div class="input-header">
+              <label class="input-label">Lumpsum Investment</label>
+              <div class="input-value-display">
+                <span class="currency-symbol">₹</span>
+                <input type="number" id="mf-amount" class="inline-input" value="100000" min="1000" />
+              </div>
+            </div>
+            <input type="range" id="mf-amount-slider" class="slider" min="1000" max="1000000" step="1000"
+              value="100000" />
+            <div class="slider-labels"><span>₹1,000</span><span>₹10,00,000</span></div>
+          </div>
+
+          <div class="input-group">
+            <div class="input-header">
+              <label class="input-label">Investment Period <em>(years ago)</em></label>
+              <div class="input-value-display">
+                <input type="number" id="mf-years" class="inline-input" value="5" min="1" max="20" />
+                <span class="currency-symbol">Yr</span>
+              </div>
+            </div>
+            <input type="range" id="mf-years-slider" class="slider" min="1" max="20" step="1" value="5" />
+            <div class="slider-labels"><span>1 Yr</span><span>20 Yrs</span></div>
+          </div>
+        </div>
+
+        <button class="calculate-btn" id="mf-calculate-btn" onclick="calculateMutualFund()" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Simulate Investment
+          <span class="btn-shine"></span>
+        </button>
+      </div>
+
+      <!-- MF Results -->
+      <div class="calc-card mf-results-card" id="mf-results-section">
+
+        <div class="mf-placeholder" id="mf-placeholder">
+          <div class="placeholder-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              opacity="0.4">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <p class="placeholder-title">Select a fund to begin</p>
+          <p class="placeholder-desc">Search for a mutual fund, configure your investment, and click <strong>Simulate
+              Investment</strong> to see historical performance.</p>
+        </div>
+
+        <div class="mf-results-content" id="mf-results-content" style="display:none">
+          <div class="card-title-row">
+            <h2 class="card-title">Simulation Results</h2>
+            <span class="card-badge card-badge-green">Historical</span>
+          </div>
+          <div class="fund-result-name" id="mf-result-fund-name"></div>
+
+          <div class="donut-container">
+            <canvas id="mf-chart" width="240" height="240"></canvas>
+            <div class="donut-center">
+              <span class="donut-label">Current Value</span>
+              <span class="donut-value" id="mf-total-display">₹0</span>
+            </div>
+          </div>
+
+          <div class="result-legend">
+            <div class="legend-item">
+              <span class="legend-dot invested"></span>
+              <span class="legend-label">Invested Amount</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot returns"></span>
+              <span class="legend-label">Returns</span>
+            </div>
+          </div>
+
+          <div class="result-values">
+            <div class="result-row">
+              <span class="result-label"><span class="result-dot invested-dot"></span>Invested Amount</span>
+              <span class="result-amount invested-color" id="mf-invested">₹0</span>
+            </div>
+            <div class="result-row">
+              <span class="result-label"><span class="result-dot returns-dot"></span>Returns</span>
+              <span class="result-amount returns-color" id="mf-returns">₹0</span>
+            </div>
+            <div class="result-row total-row">
+              <span class="result-label total-label">Current Value</span>
+              <span class="result-amount total-color" id="mf-total">₹0</span>
+            </div>
+          </div>
+
+          <div class="mf-metrics">
+            <div class="metric-card">
+              <div class="metric-icon-wrap cagr-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+              </div>
+              <div class="metric-info">
+                <span class="metric-value" id="mf-cagr">0%</span>
+                <span class="metric-label">CAGR</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon-wrap nav-then-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <div class="metric-info">
+                <span class="metric-value" id="mf-old-nav">₹0</span>
+                <span class="metric-label">NAV Then</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon-wrap nav-now-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <div class="metric-info">
+                <span class="metric-value" id="mf-latest-nav">₹0</span>
+                <span class="metric-label">Latest NAV</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon-wrap units-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+                </svg>
+              </div>
+              <div class="metric-info">
+                <span class="metric-value" id="mf-units">0</span>
+                <span class="metric-label">Units Owned</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mf-disclaimer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            Past performance is not indicative of future returns. Data sourced from MFAPI.in.
+          </div>
+        </div>
+
+        <div class="mf-loading" id="mf-loading" style="display:none">
+          <div class="loading-spinner"></div>
+          <p class="loading-title">Fetching NAV data</p>
+          <p class="loading-sub">Pulling historical NAVs from MFAPI...</p>
+        </div>
+
+        <div class="mf-error" id="mf-error" style="display:none">
+          <div class="error-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </div>
+          <p class="error-title">Something went wrong</p>
+          <p id="mf-error-msg" class="error-desc">Failed to load NAV data.</p>
+          <button class="retry-btn" onclick="calculateMutualFund()">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ BROKER MODAL ═══════════════════════ -->
+  <div class="modal-overlay" id="broker-modal" onclick="closeBrokerModal(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeBrokerModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <div class="modal-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </svg>
+      </div>
+      <div class="modal-header">
+        <h2 class="modal-title">Start Investing Today</h2>
+        <p class="modal-subtitle">Choose your preferred broker and open a free account in minutes</p>
+      </div>
+      <div class="broker-grid">
+        <a href="https://zerodha.com" target="_blank" rel="noopener" class="broker-card" id="broker-zerodha">
+          <div class="broker-logo zerodha-logo">Z</div>
+          <div class="broker-info">
+            <span class="broker-name">Zerodha</span>
+            <span class="broker-desc">India's #1 stockbroker · ₹0 equity delivery</span>
+          </div>
+          <svg class="broker-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+        <a href="https://groww.in" target="_blank" rel="noopener" class="broker-card" id="broker-groww">
+          <div class="broker-logo groww-logo">G</div>
+          <div class="broker-info">
+            <span class="broker-name">Groww</span>
+            <span class="broker-desc">Commission-free MF investing · Simple UI</span>
+          </div>
+          <svg class="broker-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+        <a href="https://upstox.com" target="_blank" rel="noopener" class="broker-card" id="broker-upstox">
+          <div class="broker-logo upstox-logo">U</div>
+          <div class="broker-info">
+            <span class="broker-name">Upstox</span>
+            <span class="broker-desc">Advanced tools · ₹20 flat brokerage</span>
+          </div>
+          <svg class="broker-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+      <p class="modal-disclaimer">All links go directly to official broker websites. We have no affiliate relationship.
+      </p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
